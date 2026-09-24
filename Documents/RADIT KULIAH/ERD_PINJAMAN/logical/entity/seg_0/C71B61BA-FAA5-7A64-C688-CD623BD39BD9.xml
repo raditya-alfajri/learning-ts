@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C71B61BA-FAA5-7A64-C688-CD623BD39BD9" name="PEMBAYARAN">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:02:42 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_pembayaran" id="B2259D3B-D328-1B89-2B2D-77397ACCB5AE">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:02:59 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_jadwal" id="569E72BC-B67B-8A9E-B7EF-09E460D03AF7">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:03:16 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_petugas" id="593E6AB0-1935-9D1F-7DBB-9BE3538F0252">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:03:27 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tgl_bayar" id="C61936FF-7A31-5C4A-E81C-1B2980A93869">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:03:40 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="jumlah_bayar" id="0D4A5656-F076-FAE8-BE3B-B6E14FFBC593">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:03:55 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="denda" id="6D7CFF83-07B0-5B9F-CDAB-0407D81CAD10">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:04:11 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="metode_bayar" id="7156FDAB-3DA2-9F3D-284F-07220E385221">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:04:21 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_jadwal1" id="ACD420D8-7C6B-52EA-6485-6CDED0CC2AB5">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:15:44 UTC</createdTime>
+<generatorID>071D850D-BBB3-5196-B616-D043D15868B1</generatorID>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<referedAttribute>05EC784D-E2BA-A85E-19FA-F9B2A700F37F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_anggota" id="A18E0CE4-6F90-BD81-46B5-A6D156C62B29">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:16:13 UTC</createdTime>
+<generatorID>BFF76595-51AB-E3FE-9950-6EB2C750A742</generatorID>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<referedAttribute>A546BF54-ABC1-200A-446B-2586C13B825E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="AD3F5723-E544-F5A2-9311-D164263C89E7" name="PEMBAYARAN PK">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:03:13 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B2259D3B-D328-1B89-2B2D-77397ACCB5AE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

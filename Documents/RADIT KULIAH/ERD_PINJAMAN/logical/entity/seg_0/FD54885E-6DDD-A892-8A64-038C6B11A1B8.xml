@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FD54885E-6DDD-A892-8A64-038C6B11A1B8" name="PINJAMAN">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:57:12 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_pinjaman" id="389912E6-D6F2-D068-027B-772FA590E804">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:57:22 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_pengajuan" id="B3C9EDB6-03A0-1F6D-A2AA-7AC6811BCB2B">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:57:49 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tgl_cair" id="FFB3CE3F-09FE-0A9A-998E-91E0C555EBC9">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:58:10 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="jumlah_pinjaman" id="812D9CAB-0269-062D-6F6B-9017FEC3EACE">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:58:25 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="bunga_persen" id="08D6CB46-05F3-9D29-560E-FC6668F29EE3">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:58:49 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tenor_bulan" id="DE7BA9E8-7CB9-593D-5AE2-C81A779210D1">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:59:03 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="angsuran_per_bulan" id="B9C70657-0EE9-E13C-B801-42C534231AA1">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:59:33 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="status" id="2D42C8F3-27E1-540A-B77E-0973B0BC8285">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:59:49 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_pengajuan1" id="E2DC92E5-37FA-7F81-A77F-20FC63D20FF9">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:14:21 UTC</createdTime>
+<generatorID>AB8988CE-70DF-48A3-AE13-DBD5C206DDE3</generatorID>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<referedAttribute>BCA514D6-2D21-3C1A-F1EE-C9A16B8C01BE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D4C42166-C9F6-76BD-EDE1-EAB29103F755" name="PINJAMAN PK">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:57:47 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>389912E6-D6F2-D068-027B-772FA590E804</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

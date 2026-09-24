@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="mengajukan" directorySegmentName="seg_0" id="02818FBC-5546-D76D-60B4-E21F8B1A977D">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:09:59 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<sourcePk>41AF22EE-30E7-5735-1F78-CD857FA1DB77</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>5BDAFE0A-7387-F826-4A72-632D0CF4F7E6</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>CF2C54FA-9882-4AEB-4B07-67D3FE5F55D6</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

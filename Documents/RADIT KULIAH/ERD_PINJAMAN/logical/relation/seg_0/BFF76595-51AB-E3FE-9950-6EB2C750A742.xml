@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="mencatat" directorySegmentName="seg_0" id="BFF76595-51AB-E3FE-9950-6EB2C750A742">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:16:13 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<sourcePk>2001CC34-B0D1-6F6C-0007-232F345CE593</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>4471B0F0-7121-6995-6981-39A2BD2F1792</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>C71B61BA-FAA5-7A64-C688-CD623BD39BD9</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="ERD_PINJAMAN" id="FEA14637-B34C-CB39-8135-8E302D78446A" version="3.5">
+<createdBy>zynos</createdBy>
+<createdTime>2026-09-24 08:38:38 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>FEA14637-B34C-CB39-8135-8E302D78446A</designId>
+</OSDM_Design>

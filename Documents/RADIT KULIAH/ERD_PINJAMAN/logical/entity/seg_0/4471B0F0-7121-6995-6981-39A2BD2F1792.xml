@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4471B0F0-7121-6995-6981-39A2BD2F1792" name="PETUGAS">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:45:45 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_anggota" id="A546BF54-ABC1-200A-446B-2586C13B825E">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:45:56 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nama" id="F0337BE0-2748-3BD5-CC21-8DCB6A1D3308">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:46:34 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="jabatan" id="3A9BDA65-4816-D4CD-185F-2DA78E49B489">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:46:55 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="username" id="248AB622-F979-A7D0-6042-A1FBB9AD3EAB">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:47:05 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="password" id="47A6D4F2-4122-C5CD-F610-3EA9A4C4743F">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:47:20 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2001CC34-B0D1-6F6C-0007-232F345CE593" name="ANGGOTA PK">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:46:10 UTC</createdTime>
+<ownerDesignName>ERD_PINJAMAN</ownerDesignName>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A546BF54-ABC1-200A-446B-2586C13B825E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
