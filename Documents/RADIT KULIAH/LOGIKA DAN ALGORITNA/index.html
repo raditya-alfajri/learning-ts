@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesture 3D Particle System - Fixed</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #050505; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        /* Kamera dimunculkan di pojok kanan bawah dengan efek cermin */
+        #input_video { 
+            position: absolute; 
+            bottom: 20px; 
+            right: 20px; 
+            width: 220px; 
+            height: 165px; 
+            border-radius: 12px; 
+            border: 2px solid #00ffcc;
+            box-shadow: 0 8px 24px rgba(0, 255, 204, 0.3);
+            transform: scaleX(-1); /* Efek Cermin */
+            object-fit: cover;
+            z-index: 10;
+        }
+        
+        #canvas_container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; }
+        
+        #ui_panel { 
+            position: absolute; 
+            top: 20px; 
+            left: 20px; 
+            background: rgba(15, 15, 25, 0.85); 
+            backdrop-filter: blur(8px);
+            padding: 20px; 
+            border-radius: 12px; 
+            border: 1px solid rgba(255,255,255,0.1); 
+            z-index: 10; 
+            min-width: 200px;
+        }
+        h3 { margin-top: 0; color: #fff; font-weight: 500; letter-spacing: 1px;}
+        .status-box { background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px; border-left: 4px solid #00ffcc; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <div id="ui_panel">
+        <h3>SISTEM PARTIKEL 3D</h3>
+        <div class="status-box">
+            <p style="margin: 0 0 5px 0; font-size: 12px; color: #aaa;">GESTUR TERDETEKSI:</p>
+            <span id="gesture_status" style="color: #00ffcc; font-weight: bold; font-size: 18px;">Menginisialisasi...</span>
+        </div>
+    </div>
+
+    <video id="input_video" autoplay playsinline></video>
+    <div id="canvas_container"></div>
+
+    <script>
+        // ==========================================
+        // 1. SETUP THREE.JS & GENERATOR BENTUK PARTIKEL
+        // ==========================================
+        const container = document.getElementById('canvas_container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer.domElement);
+
+        const particlesCount = 4500; // Jumlah partikel optimal untuk pemrosesan koordinat real-time
+        const geometry = new THREE.BufferGeometry();
+        
+        // Array untuk menampung koordinat target
+        const posDefault = new Float32Array(particlesCount * 3);
+        const posHeart = new Float32Array(particlesCount * 3);
+        const posNeptune = new Float32Array(particlesCount * 3);
+        const posText = new Float32Array(particlesCount * 3);
+        const currentPositions = new Float32Array(particlesCount * 3);
+
+        // Generasi Matematika untuk Masing-Masing Bentuk
+        for(let i = 0; i < particlesCount; i++) {
+            const i3 = i * 3;
+
+            // 1. Bentuk Default (Awan Nebula Acak)
+            posDefault[i3] = (Math.random() - 0.5) * 4;
+            posDefault[i3+1] = (Math.random() - 0.5) * 4;
+            posDefault[i3+2] = (Math.random() - 0.5) * 4;
+
+            // 2. Bentuk LOVE (Persamaan Matematika 3D Kardioid/Hati)
+            const t = Math.random() * Math.PI * 2;
+            // Rumus hati ikonik
+            posHeart[i3] = 0.12 * (16 * Math.pow(Math.sin(t), 3));
+            posHeart[i3+1] = 0.12 * (13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t)) + 0.2;
+            posHeart[i3+2] = (Math.random() - 0.5) * 0.5;
+
+            // 3. Bentuk NEPTUNUS (Bola Padat + Cincin Tipis)
+            if (i < particlesCount * 0.75) {
+                // Planet (Bola)
+                const u = Math.random();
+                const v = Math.random();
+                const theta = u * 2.0 * Math.PI;
+                const phi = Math.acos(2.0 * v - 1.0);
+                const r = 0.8;
+                posNeptune[i3] = r * Math.sin(phi) * Math.cos(theta);
+                posNeptune[i3+1] = r * Math.sin(phi) * Math.sin(theta);
+                posNeptune[i3+2] = r * Math.cos(phi);
+            } else {
+                // Cincin Planet
+                const theta = Math.random() * Math.PI * 2;
+                const r = 1.2 + Math.random() * 0.3;
+                posNeptune[i3] = r * Math.cos(theta);
+                posNeptune[i3+1] = (Math.random() - 0.5) * 0.08;
+                posNeptune[i3+2] = r * Math.sin(theta);
+            }
+
+            // 4. Bentuk TEKS I L Y (Dibagi menjadi 3 kelompok huruf kasar)
+            if (i < particlesCount / 3) {
+                // Huruf "I"
+                posText[i3] = -1.2;
+                posText[i3+1] = (Math.random() - 0.5) * 1.4;
+                posText[i3+2] = (Math.random() - 0.5) * 0.2;
+            } else if (i < (particlesCount * 2) / 3) {
+                // Huruf "L"
+                if(Math.random() > 0.4) {
+                    posText[i3] = -0.2; // Garis vertikal L
+                    posText[i3+1] = (Math.random() - 0.5) * 1.4;
+                } else {
+                    posText[i3] = -0.2 + (Math.random() * 0.5); // Garis bawah L
+                    posText[i3+1] = -0.7;
+                }
+                posText[i3+2] = (Math.random() - 0.5) * 0.2;
+            } else {
+                // Huruf "Y"
+                const pct = Math.random();
+                if(pct < 0.4) {
+                    posText[i3] = 1.0; // Batang bawah Y
+                    posText[i3+1] = -0.7 + (Math.random() * 0.7);
+                } else if(pct < 0.7) {
+                    const progress = Math.random() * 0.5; // Sayap kiri Y
+                    posText[i3] = 1.0 - progress;
+                    posText[i3+1] = 0.0 + progress;
+                } else {
+                    const progress = Math.random() * 0.5; // Sayap kanan Y
+                    posText[i3] = 1.0 + progress;
+                    posText[i3+1] = 0.0 + progress;
+                }
+                posText[i3+2] = (Math.random() - 0.5) * 0.2;
+            }
+
+            // Set posisi awal partikel ke default acak
+            currentPositions[i3] = posDefault[i3];
+            currentPositions[i3+1] = posDefault[i3+1];
+            currentPositions[i3+2] = posDefault[i3+2];
+        }
+
+        geometry.setAttribute('position', new THREE.BufferAttribute(currentPositions, 3));
+        
+        // Material partikel glowing menggunakan texture lingkaran bawaan
+        const pTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/sprites/disc.png');
+        const material = new THREE.PointsMaterial({ 
+            size: 0.04, 
+            color: 0x00ffcc, 
+            map: pTexture,
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+        
+        const particlesMesh = new THREE.Points(geometry, material);
+        scene.add(particlesMesh);
+        camera.position.z = 4;
+
+        // Loop Animasi untuk Morfing Titik demi Titik (Interpolasi Posisi)
+        let activeTargetArray = posDefault;
+        let targetColor = new THREE.Color(0x00ffcc);
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            // Putar objek pelan-pelan agar efek 3D terasa hidup
+            particlesMesh.rotation.y += 0.003;
+            
+            // Ambil atribut posisi dari GPU
+            const positionAttribute = geometry.attributes.position;
+            
+            // LERP POSISI: Gerakkan koordinat saat ini mendekati koordinat target secara halus
+            for (let i = 0; i < particlesCount * 3; i++) {
+                positionAttribute.array[i] += (activeTargetArray[i] - positionAttribute.array[i]) * 0.08;
+            }
+            positionAttribute.needsUpdate = true; // Beritahu Three.js posisi telah berubah
+
+            // LERP WARNA: Ubah warna partikel secara halus
+            material.color.lerp(targetColor, 0.08);
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // ==========================================
+        // 2. LOGIKA DETEKSI GESTUR KAMERA (MEDIAPIPE)
+        // ==========================================
+        const videoElement = document.getElementById('input_video');
+        const gestureStatus = document.getElementById('gesture_status');
+
+        function analyzeHandGestures(landmarks) {
+            // Landmark utama penentu lipatan jari
+            const isIndexExtended = landmarks[8].y < landmarks[6].y;
+            const isMiddleExtended = landmarks[12].y < landmarks[10].y;
+            const isRingExtended = landmarks[16].y < landmarks[14].y;
+            const isPinkyExtended = landmarks[20].y < landmarks[18].y;
+
+            // 1. REVISI GESTUR LOVE (Finger Heart sesuai Foto)
+            // Ciri: Jari Tengah, Manis, Kelingking mengepal total. Jempol (4) dan Telunjuk (8) bersilangan/sangat dekat.
+            const thumbTip = landmarks[4];
+            const indexTip = landmarks[8];
+            const fingerDistance = Math.sqrt(
+                Math.pow(thumbTip.x - indexTip.x, 2) + 
+                Math.pow(thumbTip.y - indexTip.y, 2)
+            );
+
+            if (!isMiddleExtended && !isRingExtended && !isPinkyExtended) {
+                // Jarak jempol dan telunjuk sangat dekat saat membentuk simbol mini-heart
+                if (fingerDistance < 0.045) {
+                    return "LOVE (FINGER HEART)";
+                }
+                return "CLENCHED (NEPTUNUS)"; // Jika tidak menempel tapi semua menutup, berarti kepalan tangan
+            }
+
+            // 2. GESTUR PEACE (I Love You Text)
+            // Ciri: Telunjuk dan tengah berdiri tegak, jari manis & kelingking menekuk semisal tanda V.
+            if (isIndexExtended && isMiddleExtended && !isRingExtended && !isPinkyExtended) {
+                return "PEACE (I LOVE YOU)";
+            }
+
+            return "DEFAULT CLOUD";
+        }
+
+        const hands = new Hands({
+            locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
+        });
+
+        hands.setOptions({
+            maxNumHands: 1,
+            modelComplexity: 1,
+            minDetectionConfidence: 0.75, // Ditingkatkan agar tidak mudah salah deteksi
+            minTrackingConfidence: 0.75
+        });
+
+        // Trigger perubahan bentuk & warna berdasarkan hasil deteksi kamera
+        hands.onResults((results) => {
+            if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
+                const currentGesture = analyzeHandGestures(results.multiHandLandmarks[0]);
+                gestureStatus.innerText = currentGesture;
+
+                if (currentGesture === "LOVE (FINGER HEART)") {
+                    activeTargetArray = posHeart;
+                    targetColor.setHex(0xff3366); // Warna Pink/Merah Hati
+                } else if (currentGesture === "CLENCHED (NEPTUNUS)") {
+                    activeTargetArray = posNeptune;
+                    targetColor.setHex(0x00aaff); // Warna Biru Neptunus
+                } else if (currentGesture === "PEACE (I LOVE YOU)") {
+                    activeTargetArray = posText;
+                    targetColor.setHex(0xffaa00); // Warna Emas/Kuning Neon
+                } else {
+                    activeTargetArray = posDefault;
+                    targetColor.setHex(0x00ffcc); // Cyan Default
+                }
+            } else {
+                gestureStatus.innerText = "Mencari tangan...";
+                activeTargetArray = posDefault;
+                targetColor.setHex(0x00ffcc);
+            }
+        });
+
+        // Hidupkan Kamera via MediaPipe Utils
+        const cameraUtils = new Camera(videoElement, {
+            onFrame: async () => {
+                await hands.send({image: videoElement});
+            },
+            width: 640,
+            height: 480
+        });
+        cameraUtils.start();
+
+        // Otomatis menyesuaikan ukuran layar browser jika di-resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

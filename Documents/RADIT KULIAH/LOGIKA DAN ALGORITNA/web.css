@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Desain Jaringan Rumah - NIM Genap</title>
+  <style>
+    body{font-family: Inter, Roboto, sans-serif; background:#f6f8fb; padding:20px}
+    .canvas{background:white; border-radius:12px; box-shadow:0 6px 20px rgba(20,30,60,0.08); padding:18px; max-width:1100px; margin:0 auto}
+    h1{font-size:18px; margin:0 0 12px}
+    .legend{font-size:13px; color:#334155; margin-top:10px}
+    svg{width:100%; height:auto}
+    .device-label{font-size:12px; fill:#0f172a}
+    .link{stroke:#0f172a; stroke-width:2; stroke-linecap:round}
+    .wireless{stroke-dasharray:6 6}
+    .box{fill:#e6eefc; stroke:#2b6cb0; stroke-width:1.5; rx:6}
+    .cloud{fill:#0ea5e9}
+    .ap{fill:#fff3c4; stroke:#d97706; stroke-width:1.5}
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <h1>Desain Jaringan Rumah (NIM Genap) — 2 PC, 2 Smart TV, 2 Tablet, 6 Smartphone</h1>
+    <svg viewBox="0 0 1100 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Desain Jaringan">
+      <!-- Cloud / Internet -->
+      <g transform="translate(470,30)">
+        <path class="cloud" d="M30 30c0-16 13-30 30-30s30 14 30 30h40c18 0 32 16 28 34-4 18-20 26-34 26H22c-18 0-36-12-36-34 0-22 20-36 36-36h28z"/>
+        <text x="0" y="90" class="device-label">Internet</text>
+      </g>
+
+      <!-- Router / Modem -->
+      <g transform="translate(480,140)">
+        <rect x="-48" y="0" width="96" height="36" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="1.8"/>
+        <text x="0" y="23" text-anchor="middle" class="device-label">Router/Modem</text>
+      </g>
+
+      <!-- Switch -->
+      <g transform="translate(480,210)">
+        <rect x="-70" y="0" width="140" height="34" rx="6" fill="#eef2ff" stroke="#334155" stroke-width="1.6"/>
+        <text x="0" y="22" text-anchor="middle" class="device-label">Switch Utama</text>
+      </g>
+
+      <!-- Wired trunk from router to switch -->
+      <line x1="520" y1="106" x2="520" y2="210" class="link"/>
+
+      <!-- Left: 2 PCs (wired) -->
+      <g transform="translate(160,310)">
+        <rect class="box" x="-40" y="0" width="120" height="62"/>
+        <text x="20" y="22" class="device-label">PC 1</text>
+        <rect class="box" x="160" y="0" width="120" height="62"/>
+        <text x="220" y="22" class="device-label">PC 2</text>
+        <!-- links -->
+        <line x1="20" y1="-36" x2="520" y2="210" class="link"/>
+        <line x1="220" y1="-36" x2="520" y2="210" class="link"/>
+      </g>
+
+      <!-- Bottom: 2 PCs (wired home) connected to switch via a small switch (optional) -->
+      <g transform="translate(480,270)">
+        <rect x="-46" y="60" width="92" height="32" rx="6" fill="#fff0f0" stroke="#64748b" stroke-width="1.2"/>
+        <text x="0" y="82" text-anchor="middle" class="device-label">Switch (ruang)</text>
+        <line x1="0" y1="34" x2="0" y2="60" class="link"/>
+      </g>
+
+      <g transform="translate(360,360)">
+        <rect class="box" x="-48" y="0" width="96" height="56"/>
+        <text x="0" y="30" text-anchor="middle" class="device-label">PC (Ruang 1)</text>
+      </g>
+      <g transform="translate(600,360)">
+        <rect class="box" x="-48" y="0" width="96" height="56"/>
+        <text x="0" y="30" text-anchor="middle" class="device-label">PC (Ruang 2)</text>
+      </g>
+      <line x1="480" y1="304" x2="360" y2="360" class="link"/>
+      <line x1="480" y1="304" x2="600" y2="360" class="link"/>
+
+      <!-- Right side: Wireless AP + Wireless devices -->
+      <g transform="translate(780,200)">
+        <rect class="ap" x="-44" y="0" width="88" height="44" rx="8"/>
+        <text x="0" y="28" text-anchor="middle" class="device-label">Access Point</text>
+        <line x1="-200" y1="-62" x2="-40" y2="0" class="link"/>
+      </g>
+
+      <!-- 2 Smart TV (wired or wifi) placed top-right -->
+      <g transform="translate(760,80)">
+        <rect x="-42" y="0" width="84" height="56" rx="8" fill="#fff" stroke="#0f172a" stroke-width="1.2"/>
+        <text x="0" y="34" text-anchor="middle" class="device-label">Smart TV 1</text>
+      </g>
+      <g transform="translate(920,80)">
+        <rect x="-42" y="0" width="84" height="56" rx="8" fill="#fff" stroke="#0f172a" stroke-width="1.2"/>
+        <text x="0" y="34" text-anchor="middle" class="device-label">Smart TV 2</text>
+      </g>
+      <line x1="820" y1="124" x2="520" y2="244" class="link"/>
+      <line x1="980" y1="124" x2="520" y2="244" class="link"/>
+
+      <!-- 2 Tablets -->
+      <g transform="translate(740,300)">
+        <rect x="-36" y="0" width="72" height="48" rx="8" fill="#fff" stroke="#0f172a" stroke-width="1.2"/>
+        <text x="0" y="32" text-anchor="middle" class="device-label">Tablet 1</text>
+      </g>
+      <g transform="translate(900,300)">
+        <rect x="-36" y="0" width="72" height="48" rx="8" fill="#fff" stroke="#0f172a" stroke-width="1.2"/>
+        <text x="0" y="32" text-anchor="middle" class="device-label">Tablet 2</text>
+      </g>
+      <line x1="740" y1="300" x2="760" y2="200" class="link wireless"/>
+      <line x1="900" y1="300" x2="760" y2="200" class="link wireless"/>
+
+      <!-- 6 Smartphones arranged -->
+      <g transform="translate(720,380)">
+        <!-- generate 6 phones horizontally -->
+        <g transform="translate(-200,0)">
+          <rect x="0" y="0" width="44" height="72" rx="6" fill="#fff" stroke="#0f172a"/>
+        </g>
+        <g transform="translate(-120,0)">
+          <rect x="0" y="0" width="44" height="72" rx="6" fill="#fff" stroke="#0f172a"/>
+        </g>
+        <g transform="translate(-40,0)">
+          <rect x="0" y="0" width="44" height="72" rx="6" fill="#fff" stroke="#0f172a"/>
+        </g>
+        <g transform="translate(40,0)">
+          <rect x="0" y="0" width="44" height="72" rx="6" fill="#fff" stroke="#0f172a"/>
+        </g>
+        <g transform="translate(120,0)">
+          <rect x="0" y="0" width="44" height="72" rx="6" fill="#fff" stroke="#0f172a"/>
+        </g>
+        <g transform="translate(200,0)">
+          <rect x="0" y="0" width="44" height="72" rx="6" fill="#fff" stroke="#0f172a"/>
+        </g>
+      </g>
+      <line x1="760" y1="236" x2="760" y2="300" class="link wireless"/>
+      <line x1="760" y1="236" x2="720" y2="380" class="link wireless"/>
+
+      <!-- Legend -->
+      <g transform="translate(20,420)">
+        <rect x="0" y="0" width="320" height="160" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+        <text x="18" y="26" class="device-label">Legend:</text>
+        <text x="18" y="52" class="device-label">• Internet → Router/Modem → Switch Utama</text>
+        <text x="18" y="72" class="device-label">• PC (wired): kabel LAN langsung ke switch</text>
+        <text x="18" y="92" class="device-label">• Smart TV: umum dipasang kabel LAN atau Wi‑Fi</text>
+        <text x="18" y="112" class="device-label">• Tablet & Smartphone: umumnya via Wi‑Fi (Access Point)</text>
+        <text x="18" y="132" class="device-label">• Optional: switch lokal untuk memperluas port di tiap ruang</text>
+      </g>
+
+    </svg>
+    <p class="legend">Catatan: diagram ini rapi dan sesuai soal NIM genap (2 PC, 2 Smart TV, 2 Tablet, 6 Smartphone). Jika mau, aku bisa ekspor jadi PNG/SVG atau ubah tata letak (misal semua wireless di atas).</p>
+  </div>
+</body>
+</html>
