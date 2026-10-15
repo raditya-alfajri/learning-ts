@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="memilikiv2" directorySegmentName="seg_0" id="69E477CF-E671-17B2-79A4-65434507ABDF">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:16:51 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<sourcePk>4E870DDF-053C-5FC2-6977-5C851F1B4FA4</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>CF2C54FA-9882-4AEB-4B07-67D3FE5F55D6</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>A4EDE3BA-A069-BC1E-4CFA-B27C2194F6CE</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

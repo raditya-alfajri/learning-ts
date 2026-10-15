@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="38CBBCFC-4848-B7A3-DF2D-D22973BD522F" name="JADWAL_ANGSURAN">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:00:07 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_jadwal" id="05EC784D-E2BA-A85E-19FA-F9B2A700F37F">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:00:22 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_pinjaman" id="CDC31244-38FF-459C-52D5-E86110233389">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:00:51 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="angsuran_ke" id="A00B6E98-D0B3-BF96-4E9B-A9100518FC3A">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:01:04 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tgl_jatuh_tempo" id="E24C6090-838E-1224-8612-8412C6ACEDE1">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:01:21 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pokok" id="0ABF5283-7640-44CE-2FB2-C1CAB7D071F7">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:01:34 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="bunga" id="ED1078E8-AADF-1AEA-C684-9EF7DB4DD585">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:01:49 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="total_tagihan" id="00CC7788-9A0F-0AC8-B724-33675228D791">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:02:01 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="status" id="9EEFD375-B9E5-6B8F-87F4-D399BBF25CB6">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:02:25 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_pinjaman1" id="B6AA2E55-95C5-2E47-A2B0-26F7F61AB507">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:14:52 UTC</createdTime>
+<generatorID>0DD782D6-292A-F32C-495D-B0E1D6CD6E2A</generatorID>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<referedAttribute>389912E6-D6F2-D068-027B-772FA590E804</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="6AC43FB6-6708-2C70-41C9-18BFCD5ECB14" name="JADWAL_ANGSURAN PK">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 03:00:44 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>05EC784D-E2BA-A85E-19FA-F9B2A700F37F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

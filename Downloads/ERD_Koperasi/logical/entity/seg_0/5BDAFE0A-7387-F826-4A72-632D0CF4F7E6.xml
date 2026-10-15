@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5BDAFE0A-7387-F826-4A72-632D0CF4F7E6" name="ANGGOTA">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:40:21 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_anggota" id="49D822D2-5247-1637-5EF5-3EF0967268CF">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:40:34 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="no_anggota" id="FEAF02AD-A11F-F27D-B451-11395031B786">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:40:55 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nama" id="6DABE076-87DC-FF79-D266-78C319992D9C">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:41:26 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nik" id="2BB922CD-900C-67D0-EF74-99B7544D0BAE">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:41:41 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="alamat" id="0B95D7D2-E53A-15A0-52A5-A0E94952F029">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:42:09 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="no_hp" id="2149D9A6-E415-7277-E189-789984752D32">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:42:24 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tgl_daftar" id="385F1137-6D43-7A26-9200-032DFDB73712">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:42:41 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="status" id="759D61C0-A24A-6752-427D-F2393913C713">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:43:04 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="41AF22EE-30E7-5735-1F78-CD857FA1DB77" name="ANGGOTA PK">
+<createdBy>hi</createdBy>
+<createdTime>2026-09-24 02:40:54 UTC</createdTime>
+<ownerDesignName>ERD_Koperasi</ownerDesignName>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>49D822D2-5247-1637-5EF5-3EF0967268CF</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
